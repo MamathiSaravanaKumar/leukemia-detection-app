@@ -154,16 +154,17 @@ Classification Report
 | **Weighted Average** |  **0.96** | **0.96** | **0.96** | **651** |
 
 ## CONFUSION MATRIX
-              Predicted
-              Benign  Early  Pre  Pro
 
-Actual Benign    95      6     1    2
-Actual Early      2    188     1    1
-Actual Pre        5      4   177    1
-Actual Pro        0      0     0  168
+| Actual \ Predicted | Benign | Early | Pre | Pro |
+| ------------------ | -----: | ----: | --: | --: |
+| **Benign**         |     95 |     6 |   1 |   2 |
+| **Early**          |      2 |   188 |   1 |   1 |
+| **Pre**            |      5 |     4 | 177 |   1 |
+| **Pro**            |      0 |     0 |   0 | 168 |
+
 The model achieved the highest F1-score for the Pro class at 0.99, followed by Pre (0.97), Early (0.96), and Benign (0.92).
 
-## Experimental Nucleus Analysis
+## EXPERIMENTAL NUCLEUS ANALYSIS
 The Streamlit application includes an additional experimental image-processing component for nucleus-area analysis.
 The process involves:
   Converting the image to grayscale
@@ -174,7 +175,7 @@ The process involves:
 The processed nucleus image is displayed alongside the model prediction.
 This is an experimental image-processing feature and should not be interpreted as clinical leukemia staging or diagnosis.
 
-## Application
+## APPLICATION
 The application is built using Streamlit and allows users to:
  Upload a blood-cell image
  View the processed image
@@ -183,7 +184,7 @@ The application is built using Streamlit and allows users to:
  Generate a Grad-CAM visualization
  View the experimental nucleus analysis
 
-## Technologies Used
+## TECHNOLOGIES USED
 Python
 TensorFlow
 Keras
@@ -193,25 +194,25 @@ Pandas
 Pillow
 Streamlit
 
-## Installation
+## INSTALLATIONS
   Clone the Repository
       git clone https://github.com/MamathiSaravanaKumar/leukemia-detection-app.git
       cd leukemia-detection-app
  Create a Virtual Environment
       python -m venv venv
-## Activate the Environment
+## ACTIVATE THE ENVIRONMENT
 Windows:
   venv\Scripts\activate
 Linux/macOS:
   source venv/bin/activate
-## Install Dependencies
+## INSTALL DEPENDENCIES
 pip install -r requirements.txt
-## Run the Application
+## RUN THE APPLICATIONS
  Run the Streamlit application using:
   streamlit run app.py
 Upload a .jpg, .jpeg, or .png blood-cell image to obtain the classification result and visual analysis.
 
-## Project Structure
+## PROJECT STRUCTURE
 leukemia-detection-app/
 │
 ├── app.py
@@ -220,13 +221,11 @@ leukemia-detection-app/
 ├── runtime.txt
 ├── leukemia_model_fixed.h5
 │
-├── screenshots/
-│
 ├── results/
 │
 └── architecture/
 
-## Future Enhancements
+## FUTURE ENHANCEMENTS
 Evaluation using larger and more diverse datasets
 Independent external dataset validation
 Comparison with established CNN architectures
@@ -235,7 +234,7 @@ Additional model explainability techniques
 Improved visualization and user interface
 Further research toward clinically validated systems
 
-## Limitations
+## LIMITATIONS
 Model performance depends on the characteristics and distribution of the training dataset.
 Results may vary for images that differ significantly from the training data.
 The model has not been presented as a clinically validated diagnostic system.
