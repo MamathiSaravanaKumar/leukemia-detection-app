@@ -1,11 +1,10 @@
-# leukemia-detection-app
 # LeukemiaVision
 
 ### Blood Cell Classification Using CNN, CBAM Attention and Grad-CAM
 LeukemiaVision is a deep learning-based computer vision application designed to classify blood-cell images into four categories: **Benign, Early, Pre, and Pro**. The project combines a **Convolutional Neural Network (CNN)** with the **Convolutional Block Attention Module (CBAM)** to improve feature representation. **Grad-CAM** is incorporated to provide visual explanations of the model's predictions. The trained model is integrated into an interactive **Streamlit** application where users can upload a blood-cell image and obtain a predicted class, confidence score, Grad-CAM visualization, and experimental nucleus-area analysis.
 **Disclaimer:** LeukemiaVision is an educational/research prototype and is not intended to replace professional medical diagnosis or clinical decision-making.
 
-##  Key Features
+## KEY FEATURES
 
 -  Four-class blood-cell image classification
 -  CNN-based deep learning model
@@ -16,7 +15,7 @@ LeukemiaVision is a deep learning-based computer vision application designed to 
 -  Interactive Streamlit web application
 -  Blood-cell image preprocessing and visualization
 
-##  Model Architecture
+## MODEL ARCHITECTURE
 
 The LeukemiaVision model uses a CNN backbone followed by CBAM attention and a classification head.
 
@@ -85,7 +84,7 @@ The Convolutional Block Attention Module (CBAM) helps the network focus on more 
     Spatial attention identifies important spatial regions within the feature maps.
 By combining channel and spatial attention, the model can refine the features used for classification.
 
-**Grad-CAM Explainability**
+## GRAD CAM EXPLAINABILITY
 LeukemiaVision uses Gradient-weighted Class Activation Mapping (Grad-CAM) to visualize regions of the input image that contribute to the model's prediction. The generated heatmap is overlaid on the original blood-cell image to provide an interpretable visual representation of the model's decision.
 
 Blood Cell Image
@@ -240,3 +239,45 @@ Results may vary for images that differ significantly from the training data.
 The model has not been presented as a clinically validated diagnostic system.
 The nucleus-area analysis is an experimental image-processing feature.
 Independent clinical validation would be required before any clinical application.
+
+┌──────────────────┐
+│ Input Image      │
+│ 224 × 224 × 3    │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Conv Block       │
+│ 32 Filters       │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Conv Block       │
+│ 64 Filters       │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Conv Block       │
+│ 128 Filters      │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ CBAM Attention   │
+│ Channel +        │
+│ Spatial Attention│
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Global Average   │
+│ Pooling          │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Dense 128        │
+│ + Dropout 0.5    │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Dense 4 + Softmax│
+└────────┬─────────┘
+         ↓
+ Benign | Early | Pre | Pro
