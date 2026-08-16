@@ -19,63 +19,9 @@ LeukemiaVision is a deep learning-based computer vision application designed to 
 
 The LeukemiaVision model uses a CNN backbone followed by CBAM attention and a classification head.
 
+Input Image (224 × 224 × 3) --> Conv2D (32 filters) --> Batch Normalization(ReLu) --> Max Pooling --> Conv2D (64 filters) --> Batch Normalization(ReLu) --> Max Pooling --> Conv2D (128 filters) --> Batch Normalization(ReLu) --> Max Pooling --> CBAM Attention --> Channel or  Spatial Attention --> Global Average Pooling --> Dense (128) --> Dropout (0.5) --> Dense (4) -->  Softmax --> Benign / Early / Pre / Pro
 
-Input Image
-224 × 224 × 3
-       │
-       ▼
-Conv2D (32 filters)
-       │
-Batch Normalization
-       │
-ReLU
-       │
-Max Pooling
-       │
-       ▼
-Conv2D (64 filters)
-       │
-Batch Normalization
-       │
-ReLU
-       │
-Max Pooling
-       │
-       ▼
-Conv2D (128 filters)
-       │
-Batch Normalization
-       │
-ReLU
-       │
-Max Pooling
-       │
-       ▼
-CBAM Attention
- ┌─────┴─────┐
- ▼           ▼
-Channel     Spatial
-Attention   Attention
- └─────┬─────┘
-       │
-       ▼
-Global Average Pooling
-       │
-       ▼
-Dense (128)
-       │
-       ▼
-Dropout (0.5)
-       │
-       ▼
-Dense (4)
-       │
-     Softmax
-       │
-       ▼
-Benign / Early / Pre / Pro
-
-**CBAM Attention**
+**CBAM ATTENTION**
 
 The Convolutional Block Attention Module (CBAM) helps the network focus on more informative features within blood-cell images. CBAM consists of two sequential attention mechanisms:
   Channel Attention
@@ -240,44 +186,4 @@ The model has not been presented as a clinically validated diagnostic system.
 The nucleus-area analysis is an experimental image-processing feature.
 Independent clinical validation would be required before any clinical application.
 
-┌──────────────────┐
-│ Input Image      │
-│ 224 × 224 × 3    │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ Conv Block       │
-│ 32 Filters       │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ Conv Block       │
-│ 64 Filters       │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ Conv Block       │
-│ 128 Filters      │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ CBAM Attention   │
-│ Channel +        │
-│ Spatial Attention│
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ Global Average   │
-│ Pooling          │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ Dense 128        │
-│ + Dropout 0.5    │
-└────────┬─────────┘
-         ↓
-┌──────────────────┐
-│ Dense 4 + Softmax│
-└────────┬─────────┘
-         ↓
- Benign | Early | Pre | Pro
+
