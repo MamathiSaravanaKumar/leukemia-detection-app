@@ -33,22 +33,7 @@ By combining channel and spatial attention, the model can refine the features us
 ## GRAD CAM EXPLAINABILITY
 LeukemiaVision uses Gradient-weighted Class Activation Mapping (Grad-CAM) to visualize regions of the input image that contribute to the model's prediction. The generated heatmap is overlaid on the original blood-cell image to provide an interpretable visual representation of the model's decision.
 
-Blood Cell Image
-       │
-       ▼
- CNN + CBAM Model
-       │
-       ▼
- Model Prediction
-       │
-       ▼
-    Grad-CAM
-       │
-       ▼
-Activation Heatmap
-       │
-       ▼
-Visualization Overlay
+Blood Cell Image --> CNN + CBAM Model --> Model Prediction --> Grad-CAM --> Activation Heatmap -->Visualization Overlay
 
 ## DATASET
   The model was trained using a blood-cell leukemia image dataset obtained from Kaggle. The dataset contains four classification categories:
